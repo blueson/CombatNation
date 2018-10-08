@@ -1,0 +1,164 @@
+{
+  "data":[
+    {
+      "id": 1,
+      "name": "花木兰",
+      "hp": 33,
+      "atk": 17,
+      "atkDis": 2.3969629664421,
+      "atkSpeed": 2.7164186700647,
+      "heroPath": "Hero/role1",
+      "moveSpeed": 6.4907594697513
+    },
+    {
+      "id": 2,
+      "name": "李世明",
+      "hp": 112,
+      "atk": 21,
+      "atkDis": 1.1198374150499,
+      "atkSpeed": 4.125091447236,
+      "heroPath": "Hero/role2",
+      "moveSpeed": 3.5920876323509
+    },
+    {
+      "id": 3,
+      "name": "兰铃王",
+      "hp": 190,
+      "atk": 30,
+      "atkDis": 3.8077780224559,
+      "atkSpeed": 3.5470435949811,
+      "heroPath": "Hero/role3",
+      "moveSpeed": 2.0583956550735
+    },
+    {
+      "id": 4,
+      "name": "皇后",
+      "hp": 61,
+      "atk": 24,
+      "atkDis": 3.8599274787764,
+      "atkSpeed": 1.8858368510593,
+      "heroPath": "Hero/role4",
+      "moveSpeed": 3.4960737892944
+    },
+    {
+      "id": 5,
+      "name": "霍去病",
+      "hp": 37,
+      "atk": 19,
+      "atkDis": 2.6791166580269,
+      "atkSpeed": 3.2789605211035,
+      "heroPath": "Hero/role5",
+      "moveSpeed": 2.9709784787952
+    },
+    {
+      "id": 6,
+      "name": "花木兰",
+      "hp": 91,
+      "atk": 14,
+      "atkDis": 3.1779817510175,
+      "atkSpeed": 2.7702977394413,
+      "heroPath": "Hero/role6",
+      "moveSpeed": 6.3418172550857
+    },
+    {
+      "id": 7,
+      "name": "李世明",
+      "hp": 183,
+      "atk": 22,
+      "atkDis": 2.6833065491386,
+      "atkSpeed": 1.2869051957585,
+      "heroPath": "Hero/role7",
+      "moveSpeed": 6.2171000679316
+    },
+    {
+      "id": 8,
+      "name": "兰铃王",
+      "hp": 124,
+      "atk": 14,
+      "atkDis": 2.7147592752021,
+      "atkSpeed": 2.7652538315081,
+      "heroPath": "Hero/role8",
+      "moveSpeed": 4.595493517736
+    },
+    {
+      "id": 9,
+      "name": "皇后",
+      "hp": 54,
+      "atk": 16,
+      "atkDis": 3.5892504781999,
+      "atkSpeed": 2.9627754164493,
+      "heroPath": "Hero/role9",
+      "moveSpeed": 6.6770268648457
+    },
+    {
+      "id": 10,
+      "name": "霍去病",
+      "hp": 161,
+      "atk": 30,
+      "atkDis": 3.0174164390707,
+      "atkSpeed": 4.4958166627785,
+      "heroPath": "Hero/role10",
+      "moveSpeed": 6.5315213840044
+    },
+    {
+      "id": 11,
+      "name": "花木兰",
+      "hp": 134,
+      "atk": 16,
+      "atkDis": 3.5537342144374,
+      "atkSpeed": 4.0848195830709,
+      "heroPath": "Hero/role11",
+      "moveSpeed": 2.2044326673078
+    },
+    {
+      "id": 12,
+      "name": "李世明",
+      "hp": 142,
+      "atk": 29,
+      "atkDis": 3.840222308968,
+      "atkSpeed": 3.154053344905,
+      "heroPath": "Hero/role12",
+      "moveSpeed": 4.7009666840781
+    },
+    {
+      "id": 13,
+      "name": "兰铃王",
+      "hp": 197,
+      "atk": 17,
+      "atkDis": 3.7828291938503,
+      "atkSpeed": 2.5430503146298,
+      "heroPath": "Hero/role13",
+      "moveSpeed": 4.2448629314813
+    },
+    {
+      "id": 14,
+      "name": "皇后",
+      "hp": 179,
+      "atk": 14,
+      "atkDis": 1.1467180421289,
+      "atkSpeed": 4.9686691834832,
+      "heroPath": "Hero/role14",
+      "moveSpeed": 2.7053649435887
+    },
+    {
+      "id": 15,
+      "name": "霍去病",
+      "hp": 91,
+      "atk": 13,
+      "atkDis": 3.9575031338642,
+      "atkSpeed": 2.2570518066823,
+      "heroPath": "Hero/role15",
+      "moveSpeed": 3.5916316109574
+    },
+    {
+      "id": 16,
+      "name": "花木兰",
+      "hp": 74,
+      "atk": 18,
+      "atkDis": 3.299162352138,
+      "atkSpeed": 2.9431994002674,
+      "heroPath": "Hero/role16",
+      "moveSpeed": 6.1728670512267
+    }
+  ]
+  }
