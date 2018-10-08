@@ -23,6 +23,18 @@ public class SummonTableData {
         }
         return null;
     }
+
+    public SummonData GetSummonDataByLv(int lv)
+    {
+        foreach (var c in data)
+        {
+            if (c.lv == lv)
+            {
+                return c;
+            }
+        }
+        return null;
+    }
 }
 
 [System.Serializable]
@@ -30,6 +42,7 @@ public class SummonData
 {
     public int id;
     public int[] heroList;
+    public int lv;
     public int upgrade;
     public int consume;
     public float[] probability;

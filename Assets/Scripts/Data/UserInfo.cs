@@ -13,7 +13,7 @@ public class UserInfo
     public int chapterId;
 
     // 钱币
-    public int money;
+    public int money = 200;
 
     // 召唤池等级
     public int SummonLv;

@@ -1186,6 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chapterText: {fileID: 162592824}
+  summonConsumeText: {fileID: 1183435261}
   moneyText: {fileID: 1094632807}
   upgradeText: {fileID: 787159151}
 --- !u!222 &1920346289
