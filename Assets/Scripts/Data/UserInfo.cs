@@ -15,6 +15,9 @@ public class UserInfo
     // 钱币
     public int money;
 
+    // 召唤池等级
+    public int SummonLv;
+
 
     public void AddHero(CharacterData info)
     {

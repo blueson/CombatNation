@@ -1,0 +1,61 @@
+{
+  "data":
+    [
+      {
+        "id": 1,
+        "heroList": [ 1 ],
+        "upgrade": 200,
+        "consume": 50,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 2,
+        "heroList": [ 3 ],
+        "upgrade": 300,
+        "consume": 60,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 3,
+        "heroList": [ 5 ],
+        "upgrade": 450,
+        "consume": 72,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 4,
+        "heroList": [ 7 ],
+        "upgrade": 675,
+        "consume": 86,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 5,
+        "heroList": [ 9 ],
+        "upgrade": 1012,
+        "consume": 103,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 6,
+        "heroList": [ 11 ],
+        "upgrade": 1518,
+        "consume": 123,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 7,
+        "heroList": [ 13 ],
+        "upgrade": 2277,
+        "consume": 147,
+        "probability": [ 0.5 ]
+      },
+      {
+        "id": 8,
+        "heroList": [ 15 ],
+        "upgrade": 3415,
+        "consume": 176,
+        "probability": [ 0.5 ]
+      }
+    ]
+}
