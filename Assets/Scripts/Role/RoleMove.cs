@@ -8,7 +8,7 @@ public class RoleMove : MonoBehaviour
     private Role role;
     private Role targetRole;
     private Character character;
-    private float attackTimer = 0;
+    private float attackTimer = 0; // 攻击计时器
 
 
     private float dieTimer = 2f; //死亡后消失的时间
@@ -43,12 +43,14 @@ public class RoleMove : MonoBehaviour
             return;
         }
 
-
+        // 自动搜索目标
         SearchTarget();
+        // 检查角色的状态
         CheckRoleState();
     }
 
     void CheckRoleState(){
+        attackTimer += Time.deltaTime;
         if(targetRole == null || targetRole.Hp <= 0){
             return;
         }
@@ -81,7 +83,6 @@ public class RoleMove : MonoBehaviour
         }
 
         character.Animator.SetBool("Run", false);
-        attackTimer += Time.deltaTime;
 
         if(attackTimer >= role.AtkSpeed){
             attackTimer = 0.0f;
