@@ -10,11 +10,7 @@ public class UnityAdsHelper : MonoBehaviour
     public string iosGameID = "24300";
     public string androidGameID = "24299";
 
-    public bool enableTestMode = true;
-    public bool showInfoLogs;
-    public bool showDebugLogs;
-    public bool showWarningLogs = true;
-    public bool showErrorLogs = true;
+    public bool enableTestMode = false;
 
     private static Action _handleFinished;
     private static Action _handleSkipped;
@@ -51,12 +47,6 @@ public class UnityAdsHelper : MonoBehaviour
         }
         else
         {
-            Advertisement.debugLevel = Advertisement.DebugLevel.None;
-            if (showInfoLogs) Advertisement.debugLevel |= Advertisement.DebugLevel.Info;
-            if (showDebugLogs) Advertisement.debugLevel |= Advertisement.DebugLevel.Debug;
-            if (showWarningLogs) Advertisement.debugLevel |= Advertisement.DebugLevel.Warning;
-            if (showErrorLogs) Advertisement.debugLevel |= Advertisement.DebugLevel.Error;
-
             if (enableTestMode && !Debug.isDebugBuild)
             {
                 Debug.LogWarning("Development Build must be enabled in Build Settings to enable test mode for Unity Ads.");

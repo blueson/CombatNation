@@ -10,13 +10,16 @@ public class UserInfo
     public List<HeroInfo> heroList;
 
     // 章节id
-    public int chapterId;
+    public int chapterId = 1;
+
+    // 战斗章节id (只有战斗时才用)
+    public int fightChapterId = 0;
 
     // 钱币
     public int money = 200;
 
     // 召唤池等级
-    public int SummonLv;
+    public int SummonLv = 0;
 
 
     public void AddHero(CharacterData info)

@@ -39,7 +39,7 @@ public class FightManager : MonoBehaviour {
         }
 
         var chapterTable = ChapterTableData.CreateFromJson();
-        currentChapterData = chapterTable.GetChapterInfoById(userInfo.chapterId + 1);
+        currentChapterData = chapterTable.GetChapterInfoById(userInfo.fightChapterId);
 
         //  加载副本怪物数据
         for (int i = 0; i < currentChapterData.enemy.Length; i++)
