@@ -74,8 +74,16 @@ public class UIManager {
         if (panel == null){
             string path = pathDic.TryGet(type);
             GameObject go = GameObject.Instantiate(Resources.Load(path)) as GameObject;
+            if(canvas == null){
+                canvas = GameObject.Find("Canvas").GetComponent<Transform>();
+            }
             go.transform.SetParent(canvas, false);
-            panelDic.Add(type,go.GetComponent<BasePanel>());
+
+            if(panelDic.ContainsKey(type)){
+                panelDic[type] = go.GetComponent<BasePanel>();
+            }else{
+                panelDic.Add(type, go.GetComponent<BasePanel>());
+            }
             panel = go.GetComponent<BasePanel>();
         }
 
