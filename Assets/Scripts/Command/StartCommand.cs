@@ -10,21 +10,29 @@ public class StartCommand : EventCommand {
     public IUserInfoService userInfoService { get; set; }
 
     [Inject]
-    public UserInfoModel userInfoModel { get; set; }
+    public IUserInfoModel userInfoModel { get; set; }
 
     private string savePath = Application.persistentDataPath + "/" + "userInfoData.txt";
 
     public override void Execute()
     {
+        Retain();
         userInfoService.dispatcher.AddListener(ServiceEvent.GetUserInfo,LoadUserInfo);
         userInfoService.GetUserInfo(savePath);
+        userInfoModel.money = 300;
     }
 
     void LoadUserInfo(IEvent evt){
-        userInfoModel = JsonUtility.FromJson<UserInfoModel>((string)evt.data);
-        if(userInfoModel == null){
-            userInfoModel = new UserInfoModel();
-            userInfoService.SaveUserInfo(savePath, JsonUtility.ToJson(userInfoModel));
+        var userInfo = JsonUtility.FromJson<UserInfoModel>((string)evt.data);
+        if(userInfo == null){
+            var userInfoData = new UserInfoData { 
+                chapterId = userInfoModel.chapterId,
+                summonLv = userInfoModel.SummonLv,
+                money = userInfoModel.money,
+            };
+
+            userInfoService.SaveUserInfo(savePath, JsonUtility.ToJson(new UserInfoData((UserInfoModel)userInfoModel)));
         }
+        Release();
     }
 }

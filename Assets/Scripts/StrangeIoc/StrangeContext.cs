@@ -11,15 +11,16 @@ public class StrangeContext : MVCSContext {
     protected override void mapBindings()
     {
         //model
-        injectionBinder.Bind<UserInfoModel>().To<UserInfoModel>().ToSingleton();
+        injectionBinder.Bind<IUserInfoModel>().To<UserInfoModel>().ToSingleton();
 
         //service
         injectionBinder.Bind<IUserInfoService>().To<UserInfoService>().ToSingleton();
 
+        //controller
+        commandBinder.Bind(CommandEvent.UpdateMainInfo).To<UpdateMainInfoCommand>();
+
         //mediator
         mediationBinder.Bind<MainPanel>().To<MainPanelMediator>();
-
-        //controller
 
 
         commandBinder.Bind(ContextEvent.START).To<StartCommand>();
