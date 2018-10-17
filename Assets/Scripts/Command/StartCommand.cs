@@ -4,7 +4,8 @@ using strange.extensions.command.impl;
 using strange.extensions.dispatcher.eventdispatcher.api;
 using UnityEngine;
 
-public class StartCommand : EventCommand {
+public class StartCommand : EventCommand
+{
 
     [Inject]
     public IUserInfoService userInfoService { get; set; }
@@ -17,21 +18,40 @@ public class StartCommand : EventCommand {
     public override void Execute()
     {
         Retain();
-        userInfoService.dispatcher.AddListener(ServiceEvent.GetUserInfo,LoadUserInfo);
+        userInfoService.dispatcher.AddListener(ServiceEvent.GetUserInfo, LoadUserInfo);
         userInfoService.GetUserInfo(savePath);
-        userInfoModel.money = 300;
     }
 
-    void LoadUserInfo(IEvent evt){
-        var userInfo = JsonUtility.FromJson<UserInfoModel>((string)evt.data);
-        if(userInfo == null){
-            var userInfoData = new UserInfoData { 
+    void LoadUserInfo(IEvent evt)
+    {
+        var userInfo = JsonUtility.FromJson<UserInfoData>((string)evt.data);
+        if (userInfo == null)
+        {
+            // 保存英雄信息
+            var heroInfoList = new List<HeroInfoData>();
+            foreach (var model in userInfoModel.heroList)
+            {
+                heroInfoList.Add(new HeroInfoData
+                {
+                    id = model.id,
+                    characterId = model.characterId,
+                    lastHp = model.lastHp,
+                    lv = model.lv
+                });
+            }
+
+            // 保存用户信息
+            var userInfoData = new UserInfoData
+            {
                 chapterId = userInfoModel.chapterId,
-                summonLv = userInfoModel.SummonLv,
+                summonLv = userInfoModel.summonLv,
                 money = userInfoModel.money,
+                heroInfoData = heroInfoList
             };
 
-            userInfoService.SaveUserInfo(savePath, JsonUtility.ToJson(new UserInfoData((UserInfoModel)userInfoModel)));
+            userInfoService.SaveUserInfo(savePath, JsonUtility.ToJson(userInfoData));
+        }else{
+            userInfoModel.InitByUserInfoData(userInfo);
         }
         Release();
     }

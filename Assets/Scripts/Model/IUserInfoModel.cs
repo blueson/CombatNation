@@ -16,5 +16,7 @@ public interface IUserInfoModel {
     int money { get; set; }
 
     // 召唤池等级
-    int SummonLv { get; set; }
+    int summonLv { get; set; }
+
+    void InitByUserInfoData(UserInfoData userInfoData);
 }

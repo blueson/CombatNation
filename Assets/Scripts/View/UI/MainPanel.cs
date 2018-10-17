@@ -64,7 +64,7 @@ public class MainPanel : View {
         if(userInfo.money >= consumeMoney){
 
             userInfo.money -= consumeMoney;
-            userInfo.SummonLv += 1;
+            userInfo.summonLv += 1;
 
             DataManager.GetInstance().SaveUserInfo();
 
