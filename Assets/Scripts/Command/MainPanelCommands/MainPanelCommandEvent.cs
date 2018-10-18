@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MediatorEvent {
-    // command 回调 mediator
+public enum MainPanelCommandEvent {
     UpdateMainInfo,
-    UpdateChooseChapter
+    FubenFight,
+    ChangeChapter
 }

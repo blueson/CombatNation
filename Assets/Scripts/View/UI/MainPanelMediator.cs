@@ -35,6 +35,7 @@ public class MainPanelMediator : EventMediator {
     void AddCommmandEventListener()
     {
         dispatcher.AddListener(MediatorEvent.UpdateMainInfo, UpdateMainInfo);
+        dispatcher.AddListener(MediatorEvent.UpdateChooseChapter, UpdateChooseChapter);
     }
 
     #region Command监听事件
@@ -46,20 +47,29 @@ public class MainPanelMediator : EventMediator {
         chooseChapter = (int)data[0];
         mainPanel.UpdateTextInfo((int)data[0], (int)data[1], (int)data[2], (int)data[3]);
     }
+
+    void UpdateChooseChapter(IEvent evt){
+        chooseChapter = (int)evt.data;
+        mainPanel.UpdateChapterInfo(chooseChapter);
+    }
     #endregion
 
     #region 视图监听事件
 
 
     void LoadInfo(){
-        dispatcher.Dispatch(CommandEvent.UpdateMainInfo);
+        dispatcher.Dispatch(MainPanelCommandEvent.UpdateMainInfo);
     }
 
     void FightClick(){
-        dispatcher.Dispatch(CommandEvent.FubenFight, chooseChapter);
-        //var userinfo = DataManager.GetInstance().GetUserInfo();
-        //userinfo.fightChapterId = chooseChapter == 0 ? userinfo.chapterId : chooseChapter;
-        //SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        Debug.Log("FightClick Mediator");
+        dispatcher.Dispatch(MainPanelCommandEvent.FubenFight, chooseChapter);
+    }
+
+    void ChangeChooseChapter(IEvent evt){
+        int changeNum = (int)evt.data;
+        dispatcher.Dispatch(MainPanelCommandEvent.ChangeChapter,changeNum);
+
     }
     #endregion
 }

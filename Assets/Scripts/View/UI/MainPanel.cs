@@ -25,10 +25,15 @@ public class MainPanel : View {
 
     // 更新界面信息
     public void UpdateTextInfo(int chapterId,int money,int summonMoney,int upMoney){
-        chapterText.text = "第" + chapterId + "关";
+        UpdateChapterInfo(chapterId);
         moneyText.text = money + "";
         summonConsumeText.text = "召唤消耗" + summonMoney;
         upgradeText.text = "升级消耗" + upMoney;
+    }
+
+    // 更新关卡信息
+    public void UpdateChapterInfo(int chapterId){
+        chapterText.text = "第" + chapterId + "关";
     }
 
     // 抽卡按钮事件
@@ -56,36 +61,23 @@ public class MainPanel : View {
 
     // 召唤池升级按钮事件
     public void UpgradeButtonClick(){
-        var userInfo = DataManager.GetInstance().GetUserInfo();
+        //var userInfo = DataManager.GetInstance().GetUserInfo();
 
-        var consumeMoney = GetSummonUpgradeMoney();
-        if(userInfo.money >= consumeMoney){
+        //var consumeMoney = GetSummonUpgradeMoney();
+        //if(userInfo.money >= consumeMoney){
 
-            userInfo.money -= consumeMoney;
-            userInfo.summonLv += 1;
+        //    userInfo.money -= consumeMoney;
+        //    userInfo.summonLv += 1;
 
-            DataManager.GetInstance().SaveUserInfo();
+        //    DataManager.GetInstance().SaveUserInfo();
 
-            //UpdateTextInfo();
-        }
+        //    UpdateTextInfo();
+        //}
     }
 
     // 章节切换按钮事件
     public void ChapterChangeButtonClick(int changeNum){
-        var userInfo = DataManager.GetInstance().GetUserInfo();
-        chooseChapter = userInfo.chapterId;
-        chooseChapter += changeNum;
-        chooseChapter =  Mathf.Min(chooseChapter,userInfo.chapterId);
-        chooseChapter = Mathf.Max(chooseChapter, 1);
-
-        //UpdateTextInfo();
-    }
-
-    // 获取召唤池升级需要的金钱
-    int GetSummonUpgradeMoney(){
-        //var summonData = summonTable.GetSummonDataByLv(DataManager.GetInstance().GetUserInfo().SummonLv);
-        //return summonData.upgrade;
-        return 0;
+        dispatcher.Dispatch(MainPanelEvent.ChangeChooseChapter,changeNum);
     }
 
     // 根据概率获取物品 [0.2,0.4,0.8,1]

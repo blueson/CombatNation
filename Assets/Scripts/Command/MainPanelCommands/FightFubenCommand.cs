@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using strange.extensions.command.impl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightFubenCommand : EventCommand {
 
@@ -10,7 +11,9 @@ public class FightFubenCommand : EventCommand {
 
 	public override void Execute()
     {
-        Debug.Log("输出调涨的");
-        Debug.Log(evt.data);
+        int chooseChapter = (int)evt.data;
+        userInfoModel.fightChapterId = chooseChapter == 0 ? userInfoModel.chapterId : chooseChapter;
+
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
     }
 }
