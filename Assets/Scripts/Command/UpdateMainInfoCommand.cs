@@ -11,6 +11,15 @@ public class UpdateMainInfoCommand : EventCommand {
 
     public override void Execute()
     {
-        Debug.Log(userInfoModel.money);
+        //int chapterId,int money,int summonMoney,int upMoney
+
+        var summonTableData = SummonTableData.CreateFromJson();
+        var summonData = summonTableData.GetSummonDataByLv(userInfoModel.summonLv);
+        dispatcher.Dispatch(MediatorEvent.UpdateMainInfo,new object[]{
+            userInfoModel.chapterId,
+            userInfoModel.money,
+            summonData.consume,
+            summonData.upgrade
+        });
     }
 }

@@ -4,8 +4,5 @@ using UnityEngine;
 
 public enum MediatorEvent {
     // command 回调 mediator
-    UpdateMainInfo,
-
-    // view 调用 mediator
-    LoadInfo
+    UpdateMainInfo
 }

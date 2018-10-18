@@ -20,7 +20,7 @@ public class MainPanel : View {
 
 
     public void Init(){
-        dispatcher.Dispatch(MediatorEvent.LoadInfo);
+        dispatcher.Dispatch(MainPanelEvent.LoadInfo);
     }
 
     // 更新界面信息
@@ -51,9 +51,7 @@ public class MainPanel : View {
 
     // 战斗按钮事件
     public void FightButtonClick(){
-        var userinfo = DataManager.GetInstance().GetUserInfo();
-        userinfo.fightChapterId = chooseChapter == 0 ? userinfo.chapterId : chooseChapter;
-        SceneManager.LoadSceneAsync(1,LoadSceneMode.Additive);
+        dispatcher.Dispatch(MainPanelEvent.FightClick);
     }
 
     // 召唤池升级按钮事件
