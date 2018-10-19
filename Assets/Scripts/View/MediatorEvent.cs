@@ -5,5 +5,6 @@ using UnityEngine;
 public enum MediatorEvent {
     // command 回调 mediator
     UpdateMainInfo,
-    UpdateChooseChapter
+    UpdateChooseChapter,
+    LoadFightCharacter
 }
