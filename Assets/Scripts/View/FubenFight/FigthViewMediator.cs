@@ -27,10 +27,7 @@ public class FigthViewMediator : EventMediator {
         var heroList = (List<Dictionary<string,System.Object>>)dataArray[0];
         var monsterList = (List<Dictionary<string, System.Object>>)dataArray[1];
 
-        Debug.Log("输出获取的英雄个数");
-        Debug.Log(heroList.Count);
-
-        Debug.Log("输出获取的怪物的个数");
-        Debug.Log(monsterList.Count);
+        fightView.AddCharacter(heroList, true); //添加英雄模型
+        fightView.AddCharacter(monsterList, false); //添加怪物模型
     }
 }

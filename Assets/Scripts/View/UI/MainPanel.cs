@@ -12,23 +12,21 @@ public class MainPanel : View {
     public IEventDispatcher dispatcher { get; set; }
 
     public Text chapterText;
-    public Text summonConsumeText;
     public Text moneyText;
-    public Text upgradeText;
 
     private int chooseChapter = 0;
 
 
     public void Init(){
-        dispatcher.Dispatch(MainPanelEvent.LoadInfo);
+        dispatcher.Dispatch(MainPanelMediatorEvent.LoadInfo);
     }
 
     // 更新界面信息
     public void UpdateTextInfo(int chapterId,int money,int summonMoney,int upMoney){
         UpdateChapterInfo(chapterId);
         moneyText.text = money + "";
-        summonConsumeText.text = "召唤消耗" + summonMoney;
-        upgradeText.text = "升级消耗" + upMoney;
+        //summonConsumeText.text = "召唤消耗" + summonMoney;
+        //upgradeText.text = "升级消耗" + upMoney;
     }
 
     // 更新关卡信息
@@ -56,7 +54,7 @@ public class MainPanel : View {
 
     // 战斗按钮事件
     public void FightButtonClick(){
-        dispatcher.Dispatch(MainPanelEvent.FightClick);
+        dispatcher.Dispatch(MainPanelMediatorEvent.FightClick);
     }
 
     // 召唤池升级按钮事件
@@ -77,7 +75,7 @@ public class MainPanel : View {
 
     // 章节切换按钮事件
     public void ChapterChangeButtonClick(int changeNum){
-        dispatcher.Dispatch(MainPanelEvent.ChangeChooseChapter,changeNum);
+        dispatcher.Dispatch(MainPanelMediatorEvent.ChangeChooseChapter,changeNum);
     }
 
     // 根据概率获取物品 [0.2,0.4,0.8,1]

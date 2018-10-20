@@ -14,6 +14,6 @@ public class FightFubenCommand : EventCommand {
         int chooseChapter = (int)evt.data;
         userInfoModel.fightChapterId = chooseChapter == 0 ? userInfoModel.chapterId : chooseChapter;
 
-        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
     }
 }

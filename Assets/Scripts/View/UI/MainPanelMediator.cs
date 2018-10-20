@@ -27,8 +27,8 @@ public class MainPanelMediator : EventMediator {
     // 添加视图监听事件
     void AddViewEventListener()
     {
-        mainPanel.dispatcher.AddListener(MainPanelEvent.LoadInfo, LoadInfo);
-        mainPanel.dispatcher.AddListener(MainPanelEvent.FightClick,FightClick);
+        mainPanel.dispatcher.AddListener(MainPanelMediatorEvent.LoadInfo, LoadInfo);
+        mainPanel.dispatcher.AddListener(MainPanelMediatorEvent.FightClick,FightClick);
     }
 
     // 添加Command监听事件

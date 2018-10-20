@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d373991f9ec40ee8226986d39f2d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpBar: {fileID: 1833561591527836, guid: dac21b9655a2a45428b47b173dcdaf4b, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +206,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

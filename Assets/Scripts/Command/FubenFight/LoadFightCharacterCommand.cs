@@ -22,6 +22,7 @@ public class LoadFightCharacterCommand : EventCommand {
 
             heroDataList.Add(new Dictionary<string, object>
             {
+                {"heroPath",characterData.heroPath},
                 {"atk",characterData.atk},
                 {"hp",heroInfo.lastHp},
                 {"maxHp",characterData.hp},
@@ -45,6 +46,7 @@ public class LoadFightCharacterCommand : EventCommand {
 
             monsterDataList.Add(new Dictionary<string, object>
             {
+                {"heroPath",characterData.heroPath},
                 {"atk",characterData.atk},
                 {"hp",characterData.hp},
                 {"maxHp",characterData.hp},
