@@ -17,7 +17,14 @@ public class ChapterView : View {
     }
 
     // 挑战章节
-    public void ChapterFight(){
-        
+    public void ChapterFight()
+    {
+
+    }
+
+    // 切换章节
+    public void ChangeChooseChapter(int changeNum)
+    {
+        dispacter.Dispatch(MainPanelMediatorEvent.ChangeChooseChapter,changeNum);
     }
 }

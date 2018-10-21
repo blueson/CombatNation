@@ -9,9 +9,13 @@ public class ChapterViewMediator : EventMediator {
     [Inject]
     public ChapterView chapterView { get; set; }
 
+    private int chapterId = -1;
+
     public override void OnRegister()
     {
-        dispatcher.AddListener(MainPanelMediatorEvent.GetChapterInfo,GetChapterInfo);
+        dispatcher.AddListener(MainPanelMediatorEvent.GetChapterInfo, GetChapterInfo);
+
+
 
         // 获取当前章节信息
         dispatcher.Dispatch(MainPanelCommandEvent.GetChapterInfo);
@@ -19,10 +23,26 @@ public class ChapterViewMediator : EventMediator {
 
     public override void OnRemove()
     {
-        dispatcher.RemoveListener(MainPanelMediatorEvent.GetChapterInfo, GetChapterInfo);   
+        dispatcher.RemoveListener(MainPanelMediatorEvent.GetChapterInfo, GetChapterInfo);
     }
 
-    void GetChapterInfo(IEvent evt){
-        chapterView.UpdateChapter((int)evt.data);
+    void AddChapterViewEvent()
+    {
+        chapterView.dispatcher.AddListener(MainPanelMediatorEvent.ChangeChooseChapter,);
+    }
+
+    void GetChapterInfo(IEvent evt)
+    {
+        chapterId = (int)evt.data;
+        chapterView.UpdateChapter(chapterId);
+    }
+
+    void ChangeChooseChapter(IEvent evt)
+    {
+        int changeChapter = (int)evt.data;
+
+        chapterId += changeChapter;
+
+        
     }
 }
