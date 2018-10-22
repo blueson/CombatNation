@@ -9,12 +9,13 @@ public class ChapterViewMediator : EventMediator {
     [Inject]
     public ChapterView chapterView { get; set; }
 
-    private int chapterId = -1;
+    int chapterId = -1;
+    int chooseChapterId = -1;
 
     public override void OnRegister()
     {
         dispatcher.AddListener(MainPanelMediatorEvent.GetChapterInfo, GetChapterInfo);
-
+        AddChapterViewEvent();
 
 
         // 获取当前章节信息
@@ -28,21 +29,28 @@ public class ChapterViewMediator : EventMediator {
 
     void AddChapterViewEvent()
     {
-        chapterView.dispatcher.AddListener(MainPanelMediatorEvent.ChangeChooseChapter,);
+        chapterView.dispacter.AddListener(MainPanelMediatorEvent.ChangeChooseChapter,ChangeChooseChapter);
+        chapterView.dispacter.AddListener(MainPanelMediatorEvent.ChapterFight,ChapterFight);
     }
 
     void GetChapterInfo(IEvent evt)
     {
         chapterId = (int)evt.data;
-        chapterView.UpdateChapter(chapterId);
+        chooseChapterId = chapterId;
+        chapterView.UpdateChapter(chooseChapterId);
     }
 
     void ChangeChooseChapter(IEvent evt)
     {
         int changeChapter = (int)evt.data;
+        chooseChapterId += changeChapter;
+        chooseChapterId = Mathf.Max(1, chapterId);
+        chooseChapterId = Mathf.Min(chapterId, chooseChapterId);
 
-        chapterId += changeChapter;
+        chapterView.UpdateChapter(chooseChapterId);
+    }
 
-        
+    void ChapterFight(){
+        dispatcher.Dispatch(MainPanelCommandEvent.ChapterFight,chooseChapterId);
     }
 }

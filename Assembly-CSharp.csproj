@@ -82,12 +82,12 @@
      <Compile Include="Assets\HeroEditor\Common\ExampleScripts\TestRoom.cs" />
      <Compile Include="Assets\HeroEditor\FantasyHeroes\TestRoom\Scarecrow\Scarecrow.cs" />
      <Compile Include="Assets\HeroEditor\SpriteSheetMaker\SpriteSheetMaker.cs" />
+     <Compile Include="Assets\Scripts\Command\ChapterFight\FubenFightEvent.cs" />
+     <Compile Include="Assets\Scripts\Command\ChapterFight\LoadFightCharacterCommand.cs" />
      <Compile Include="Assets\Scripts\Command\CommandEvent.cs" />
-     <Compile Include="Assets\Scripts\Command\FubenFight\FubenFightEvent.cs" />
-     <Compile Include="Assets\Scripts\Command\FubenFight\LoadFightCharacterCommand.cs" />
+     <Compile Include="Assets\Scripts\Command\GetMoneyCommand.cs" />
      <Compile Include="Assets\Scripts\Command\StartCommand.cs" />
-     <Compile Include="Assets\Scripts\Command\UI\MainPanel\ChangeChapterCommmand.cs" />
-     <Compile Include="Assets\Scripts\Command\UI\MainPanel\FightFubenCommand.cs" />
+     <Compile Include="Assets\Scripts\Command\UI\MainPanel\ChapterFightCommand.cs" />
      <Compile Include="Assets\Scripts\Command\UI\MainPanel\GetChapterInfoCommand.cs" />
      <Compile Include="Assets\Scripts\Command\UI\MainPanel\MainPanelCommandEvent.cs" />
      <Compile Include="Assets\Scripts\Command\UI\MainPanel\UpdateMainInfoCommand.cs" />
@@ -116,6 +116,8 @@
      <Compile Include="Assets\Scripts\View\FubenFight\FightView.cs" />
      <Compile Include="Assets\Scripts\View\FubenFight\FigthViewMediator.cs" />
      <Compile Include="Assets\Scripts\View\MediatorEvent.cs" />
+     <Compile Include="Assets\Scripts\View\MoneyText\MoneyTextView.cs" />
+     <Compile Include="Assets\Scripts\View\MoneyText\MoneyTextViewMediator.cs" />
      <Compile Include="Assets\Scripts\View\UI\MainPanel.cs" />
      <Compile Include="Assets\Scripts\View\UI\MainPanel\ChapterView.cs" />
      <Compile Include="Assets\Scripts\View\UI\MainPanel\ChapterViewMediator.cs" />

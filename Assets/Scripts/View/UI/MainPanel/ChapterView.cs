@@ -19,7 +19,7 @@ public class ChapterView : View {
     // 挑战章节
     public void ChapterFight()
     {
-
+        dispacter.Dispatch(MainPanelMediatorEvent.ChapterFight);
     }
 
     // 切换章节

@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 142621774}
   - component: {fileID: 142621773}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AddMoneyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,8 +719,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ChapterChangeButtonClick
+      - m_Target: {fileID: 602997402}
+        m_MethodName: ChangeChooseChapter
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1091,8 +1091,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ChapterChangeButtonClick
+      - m_Target: {fileID: 602997402}
+        m_MethodName: ChangeChooseChapter
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2505,8 +2505,9 @@ GameObject:
   - component: {fileID: 433334649}
   - component: {fileID: 433334651}
   - component: {fileID: 433334650}
+  - component: {fileID: 433334652}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MoneyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2573,6 +2574,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 433334648}
   m_CullTransparentMesh: 0
+--- !u!114 &433334652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 433334648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5105f253a819461292f3c0ef51e5c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433382752
 GameObject:
   m_ObjectHideFlags: 0
@@ -7960,7 +7972,7 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602997398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.34, y: 1.34, z: 1.34}
   m_Children:
@@ -7975,7 +7987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000070035458, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 307, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602997400
@@ -26301,7 +26313,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -26310,9 +26322,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: af179104b970258429a228d945ab2347,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: af179104b970258429a228d945ab2347, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: af179104b970258429a228d945ab2347, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -26323,8 +26336,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: FightButtonClick
+      - m_Target: {fileID: 602997402}
+        m_MethodName: ChapterFight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

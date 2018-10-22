@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum MainPanelCommandEvent {
     UpdateMainInfo,
-    FubenFight,
     ChangeChapter,
 
 
+    ChapterFight,
     GetChapterInfo
 }

@@ -54,7 +54,7 @@ public class MainPanel : View {
 
     // 战斗按钮事件
     public void FightButtonClick(){
-        dispatcher.Dispatch(MainPanelMediatorEvent.FightClick);
+        dispatcher.Dispatch(MainPanelMediatorEvent.ChapterFight);
     }
 
     // 召唤池升级按钮事件

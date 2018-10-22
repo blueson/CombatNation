@@ -6,5 +6,10 @@ public enum MediatorEvent {
     // command 回调 mediator
     UpdateMainInfo,
     UpdateChooseChapter,
-    LoadFightCharacter
+    LoadFightCharacter,
+
+
+
+
+    GetMoney
 }

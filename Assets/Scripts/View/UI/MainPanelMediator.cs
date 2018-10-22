@@ -28,7 +28,7 @@ public class MainPanelMediator : EventMediator {
     void AddViewEventListener()
     {
         mainPanel.dispatcher.AddListener(MainPanelMediatorEvent.LoadInfo, LoadInfo);
-        mainPanel.dispatcher.AddListener(MainPanelMediatorEvent.FightClick,FightClick);
+        mainPanel.dispatcher.AddListener(MainPanelMediatorEvent.ChapterFight,FightClick);
     }
 
     // 添加Command监听事件
@@ -63,7 +63,7 @@ public class MainPanelMediator : EventMediator {
 
     void FightClick(){
         Debug.Log("FightClick Mediator");
-        dispatcher.Dispatch(MainPanelCommandEvent.FubenFight, chooseChapter);
+        dispatcher.Dispatch(MainPanelCommandEvent.ChapterFight, chooseChapter);
     }
 
     void ChangeChooseChapter(IEvent evt){
