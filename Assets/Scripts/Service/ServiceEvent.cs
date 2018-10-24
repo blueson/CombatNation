@@ -3,5 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ServiceEvent  {
-    GetUserInfo
+    GetUserInfo,
+    SaveUserInfo
 }

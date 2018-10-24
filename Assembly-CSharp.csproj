@@ -91,6 +91,8 @@
      <Compile Include="Assets\Scripts\Command\UI\MainPanel\GetChapterInfoCommand.cs" />
      <Compile Include="Assets\Scripts\Command\UI\MainPanel\MainPanelCommandEvent.cs" />
      <Compile Include="Assets\Scripts\Command\UI\MainPanel\UpdateMainInfoCommand.cs" />
+     <Compile Include="Assets\Scripts\Command\UI\RecruitPanel\GetRecruitMoneyCommand.cs" />
+     <Compile Include="Assets\Scripts\Command\UI\RecruitPanel\RecruitHeroCommand.cs" />
      <Compile Include="Assets\Scripts\Model\HeroInfoModel.cs" />
      <Compile Include="Assets\Scripts\Model\IUserInfoModel.cs" />
      <Compile Include="Assets\Scripts\Model\UserInfoModel.cs" />
@@ -123,6 +125,9 @@
      <Compile Include="Assets\Scripts\View\UI\MainPanel\ChapterViewMediator.cs" />
      <Compile Include="Assets\Scripts\View\UI\MainPanel\MainPanelMediatorEvent.cs" />
      <Compile Include="Assets\Scripts\View\UI\MainPanelMediator.cs" />
+     <Compile Include="Assets\Scripts\View\UI\RecruitPanel\RecruitItemMediator.cs" />
+     <Compile Include="Assets\Scripts\View\UI\RecruitPanel\RecruitItemView.cs" />
+     <Compile Include="Assets\Scripts\View\UI\RecruitPanel\RecruitPanelMediatorEvent.cs" />
      <Compile Include="Assets\StrangeIoC\scripts\strange\extensions\command\api\CommandExceptionType.cs" />
      <Compile Include="Assets\StrangeIoC\scripts\strange\extensions\command\api\CommandKeys.cs" />
      <Compile Include="Assets\StrangeIoC\scripts\strange\extensions\command\api\ICommand.cs" />

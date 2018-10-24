@@ -11,5 +11,6 @@ public enum MediatorEvent {
 
 
 
-    GetMoney
+    GetMoney,
+    GetRecruitMoney,
 }
