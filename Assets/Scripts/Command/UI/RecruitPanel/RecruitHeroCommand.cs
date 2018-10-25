@@ -15,9 +15,6 @@ public class RecruitHeroCommand : EventCommand {
 
     public override void Execute()
     {
-
-        Debug.Log("招募英雄");
-
         var summonTable = SummonTableData.CreateFromJson();
         var characterTable = CharacterTableData.CreateFromJson();
         var summonData = summonTable.GetSummonDataByLv(userInfoModel.summonLv);
@@ -36,31 +33,10 @@ public class RecruitHeroCommand : EventCommand {
                 lv = 1
             });
 
+            userInfoService.SaveUserInfo(userInfoModel);
 
 
-            // 保存英雄信息
-            var heroInfoList = new List<HeroInfoData>();
-            foreach (var model in userInfoModel.heroList)
-            {
-                heroInfoList.Add(new HeroInfoData
-                {
-                    id = model.id,
-                    characterId = model.characterId,
-                    lastHp = model.lastHp,
-                    lv = model.lv
-                });
-            }
-
-            // 保存用户信息
-            var userInfoData = new UserInfoData
-            {
-                chapterId = userInfoModel.chapterId,
-                summonLv = userInfoModel.summonLv,
-                money = userInfoModel.money,
-                heroInfoData = heroInfoList
-            };
-
-            userInfoService.SaveUserInfo(savePath, JsonUtility.ToJson(userInfoData));
+            dispatcher.Dispatch(CommandEvent.GetMoney);
 
         }
     }

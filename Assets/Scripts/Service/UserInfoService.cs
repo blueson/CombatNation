@@ -11,29 +11,50 @@ public class UserInfoService : IUserInfoService
     [Inject]
     public IEventDispatcher dispatcher { get; set; }
 
-    public void GetUserInfo(string savePath)
+    string savePath = Application.persistentDataPath + "/" + "userInfoData.txt";
+
+    public void GetUserInfo()
     {
-        string userInfo = "";
         if (File.Exists(savePath))
         {
-            StreamReader sr = new StreamReader(savePath, Encoding.Default);
-            userInfo = sr.ReadToEnd();
-        }
+            var bf = new BinaryFormatter();
+            var fs = File.Open(savePath, FileMode.Open);
+            var userInfo = (UserInfoData)bf.Deserialize(fs);
+            fs.Close();
 
-        // 回调command
-        dispatcher.Dispatch(ServiceEvent.GetUserInfo,userInfo);
+
+            // 回调command
+            dispatcher.Dispatch(ServiceEvent.GetUserInfo, userInfo);
+        }
     }
 
-    public void SaveUserInfo(string savePath,string userInfo)
+    public void SaveUserInfo(IUserInfoModel userInfoModel)
     {
-        FileStream fs = new FileStream(savePath, FileMode.OpenOrCreate);
-        StreamWriter sw = new StreamWriter(fs);
-        //开始写入
-        sw.Write(userInfo);
-        //清空缓冲区
-        sw.Flush();
-        //关闭流
-        sw.Close();
+        // 保存英雄信息
+        var heroInfoList = new List<HeroInfoData>();
+        foreach (var model in userInfoModel.heroList)
+        {
+            heroInfoList.Add(new HeroInfoData
+            {
+                id = model.id,
+                characterId = model.characterId,
+                lastHp = model.lastHp,
+                lv = model.lv
+            });
+        }
+
+        // 保存用户信息
+        var userInfoData = new UserInfoData
+        {
+            chapterId = userInfoModel.chapterId,
+            summonLv = userInfoModel.summonLv,
+            money = userInfoModel.money,
+            heroInfoData = heroInfoList
+        };
+
+        var bf = new BinaryFormatter();
+        FileStream fs = File.Create(savePath);
+        bf.Serialize(fs, userInfoData);
         fs.Close();
     }
 }

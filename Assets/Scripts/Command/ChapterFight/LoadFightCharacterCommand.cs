@@ -22,6 +22,7 @@ public class LoadFightCharacterCommand : EventCommand {
 
             heroDataList.Add(new Dictionary<string, object>
             {
+                {"id",heroInfo.id},
                 {"heroPath",characterData.heroPath},
                 {"atk",characterData.atk},
                 {"hp",heroInfo.lastHp},

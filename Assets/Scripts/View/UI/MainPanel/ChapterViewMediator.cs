@@ -19,7 +19,7 @@ public class ChapterViewMediator : EventMediator {
 
 
         // 获取当前章节信息
-        dispatcher.Dispatch(MainPanelCommandEvent.GetChapterInfo);
+        dispatcher.Dispatch(CommandEvent.GetChapterInfo);
     }
 
     public override void OnRemove()
@@ -51,6 +51,6 @@ public class ChapterViewMediator : EventMediator {
     }
 
     void ChapterFight(){
-        dispatcher.Dispatch(MainPanelCommandEvent.ChapterFight,chooseChapterId);
+        dispatcher.Dispatch(CommandEvent.ChapterFight,chooseChapterId);
     }
 }

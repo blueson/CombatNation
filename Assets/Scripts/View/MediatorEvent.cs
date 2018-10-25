@@ -13,4 +13,5 @@ public enum MediatorEvent {
 
     GetMoney,
     GetRecruitMoney,
+    ChapterFightWin
 }

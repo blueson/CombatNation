@@ -13,18 +13,16 @@ public class StartCommand : EventCommand
     [Inject]
     public IUserInfoModel userInfoModel { get; set; }
 
-    private string savePath = Application.persistentDataPath + "/" + "userInfoData.txt";
-
     public override void Execute()
     {
         Retain();
         userInfoService.dispatcher.AddListener(ServiceEvent.GetUserInfo, LoadUserInfo);
-        userInfoService.GetUserInfo(savePath);
+        userInfoService.GetUserInfo();
     }
 
     void LoadUserInfo(IEvent evt)
     {
-        var userInfo = JsonUtility.FromJson<UserInfoData>((string)evt.data);
+        var userInfo = (UserInfoData)evt.data;
         if (userInfo == null)
         {
             // 保存英雄信息
@@ -49,7 +47,8 @@ public class StartCommand : EventCommand
                 heroInfoData = heroInfoList
             };
 
-            userInfoService.SaveUserInfo(savePath, JsonUtility.ToJson(userInfoData));
+            userInfoModel.InitByUserInfoData(userInfo);
+            userInfoService.SaveUserInfo(userInfoModel);
         }else{
             userInfoModel.InitByUserInfoData(userInfo);
         }

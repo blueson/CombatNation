@@ -6,6 +6,6 @@ using UnityEngine;
 public interface IUserInfoService {
     IEventDispatcher dispatcher { get; set; }
 
-    void GetUserInfo(string savePath);
-    void SaveUserInfo(string savePath, string userInfo);
+    void GetUserInfo();
+    void SaveUserInfo(IUserInfoModel userInfoModel);
 }

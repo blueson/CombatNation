@@ -6,18 +6,24 @@ using UnityEngine;
 
 public class FightView : View {
 
+    public static int FightUpdate = 0;
+
     public GameObject hpBar;
 
     [Inject]
     public IEventDispatcher dispatcher { get; set; }
 
+    [HideInInspector]
+    public List<Role> roleList = new List<Role>();
+
     public void AddCharacter(List<Dictionary<string, System.Object>> dataList,bool isHero){
         int y = 0;
+        int x = isHero? -12 : 12;
         foreach (var data in dataList)
         {
             var heroPrefab = (GameObject)Resources.Load((string)data["heroPath"]);
 
-            GameObject go = Instantiate(heroPrefab, new Vector3(12, y, 0), Quaternion.identity, transform);
+            GameObject go = Instantiate(heroPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
             Role role = go.GetComponent<Role>();
             role.Atk = (int)data["atk"];
             if(isHero){
@@ -29,10 +35,16 @@ public class FightView : View {
             role.AtkSpeed = (float)data["atkSpeed"];
             role.RoleType1 = (Role.RoleType)data["roleType1"];
             role.MoveSpeed = (float)data["moveSpeed"];
+            roleList.Add(role);
 
             Instantiate(hpBar, go.transform); // 创建血条
 
             y--;
         }
+    }
+
+    private void Update()
+    {
+        dispatcher.Dispatch(FightUpdate);
     }
 }
