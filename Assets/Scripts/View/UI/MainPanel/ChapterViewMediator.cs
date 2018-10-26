@@ -44,7 +44,7 @@ public class ChapterViewMediator : EventMediator {
     {
         int changeChapter = (int)evt.data;
         chooseChapterId += changeChapter;
-        chooseChapterId = Mathf.Max(1, chapterId);
+        chooseChapterId = Mathf.Max(1, chooseChapterId);
         chooseChapterId = Mathf.Min(chapterId, chooseChapterId);
 
         chapterView.UpdateChapter(chooseChapterId);

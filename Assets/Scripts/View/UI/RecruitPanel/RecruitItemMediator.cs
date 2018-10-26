@@ -9,10 +9,10 @@ public class RecruitItemMediator : EventMediator {
     [Inject]
     public RecruitItemView view { get; set; }
 
-    int chooseSummonLv = 0;
-
     public override void OnRegister()
     {
+        view.InitView();
+
         view.dispatcher.AddListener(RecruitPanelMediatorEvent.RecruitButtonClick,RecruitButtonClick);
         dispatcher.AddListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
 
@@ -26,12 +26,11 @@ public class RecruitItemMediator : EventMediator {
 
     void GetRecruitMoney(IEvent evt)
     {
-        chooseSummonLv = (int)evt.data;
         view.UpdateRecruitMoneyText((int)evt.data);
     }
 
-    void RecruitButtonClick()
+    void RecruitButtonClick(IEvent evt)
     {
-        dispatcher.Dispatch(CommandEvent.RecruitHero,chooseSummonLv);
+        dispatcher.Dispatch(CommandEvent.RecruitHero,(int)evt.data);
     }
 }

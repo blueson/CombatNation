@@ -12,33 +12,50 @@ public class RecruitHeroCommand : EventCommand {
     public IUserInfoService userInfoService { get; set; }
 
     string savePath = Application.persistentDataPath + "/" + "userInfoData.txt";
+    SummonData summonData;
+    CharacterTableData characterTable;
 
     public override void Execute()
     {
-        var summonTable = SummonTableData.CreateFromJson();
-        var characterTable = CharacterTableData.CreateFromJson();
-        var summonData = summonTable.GetSummonDataByLv(userInfoModel.summonLv);
+        int recruitCount = (int)evt.data; // 招募次数
 
-        if(userInfoModel.money >= summonData.consume)
+        var summonTable = SummonTableData.CreateFromJson();
+        characterTable = CharacterTableData.CreateFromJson();
+        summonData = summonTable.GetSummonDataByLv(userInfoModel.summonLv);
+
+
+        if(userInfoModel.money >= summonData.consume * recruitCount)
         {
-            userInfoModel.money -= summonData.consume;
-            var index = GetProbabilityIndex(summonData.probability);
-            var heroId = summonData.heroList[index];
-            var characterData = characterTable.GetCharacterInfoById(heroId);
-            userInfoModel.heroList.Add(new HeroInfoModel
+            // 扣除需要的钱
+            userInfoModel.money -= summonData.consume * recruitCount;
+
+            for (int i = 0; i < recruitCount;i++)
             {
-                id = System.Guid.NewGuid().ToString(),
-                characterId = characterData.id,
-                lastHp = characterData.hp,
-                lv = 1
-            });
+                RecruitHero();
+            }
 
             userInfoService.SaveUserInfo(userInfoModel);
-
-
             dispatcher.Dispatch(CommandEvent.GetMoney);
 
         }
+        else
+        {
+            Debug.Log("钱不够");   
+        }
+    }
+
+    // 招募一次英雄
+    void RecruitHero(){
+        var index = GetProbabilityIndex(summonData.probability);
+        var heroId = summonData.heroList[index];
+        var characterData = characterTable.GetCharacterInfoById(heroId);
+        userInfoModel.heroList.Add(new HeroInfoModel
+        {
+            id = System.Guid.NewGuid().ToString(),
+            characterId = characterData.id,
+            lastHp = characterData.hp,
+            lv = 1
+        });
     }
 
     // 根据概率获取物品 [0.2,0.4,0.8,1]

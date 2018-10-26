@@ -27,16 +27,16 @@ public class StrangeContext : MVCSContext {
         commandBinder.Bind(CommandEvent.RecruitHero).To<RecruitHeroCommand>();
         commandBinder.Bind(CommandEvent.SaveAliveHero).To<SaveAliveHeroCommand>();
         commandBinder.Bind(CommandEvent.ChapterFightWin).To<ChapterFightWinCommand>();
+        commandBinder.Bind(CommandEvent.AddMoney).To<AddMoneyCommand>();
 
         //mediator
         mediationBinder.Bind<MainPanel>().To<MainPanelMediator>();
         mediationBinder.Bind<FightView>().To<FigthViewMediator>();
+
         mediationBinder.Bind<MoneyTextView>().To<MoneyTextViewMediator>();
-
-
         mediationBinder.Bind<ChapterView>().To<ChapterViewMediator>();
         mediationBinder.Bind<RecruitItemView>().To<RecruitItemMediator>();
-
+        mediationBinder.Bind<AddMoneyButtonView>().To<AddMoneyButtonMediator>();
 
         commandBinder.Bind(ContextEvent.START).To<StartCommand>();
     }

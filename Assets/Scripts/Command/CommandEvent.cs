@@ -9,5 +9,6 @@ public enum CommandEvent {
     GetRecruitMoney, // 获取招募一次需要的钱
     RecruitHero, // 招募英雄
     SaveAliveHero, // 保存剩下的英雄信息
-    ChapterFightWin // 章节挑战胜利
+    ChapterFightWin, // 章节挑战胜利
+    AddMoney // 添加钱币
 }

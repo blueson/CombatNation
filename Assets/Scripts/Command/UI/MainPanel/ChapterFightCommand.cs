@@ -11,10 +11,15 @@ public class ChapterFightCommand : EventCommand {
 
     public override void Execute()
     {
-        Debug.Log("调用Fight");
+
+        if(userInfoModel.heroList == null || userInfoModel.heroList.Count <=0 ){
+            Debug.Log("没有可上阵的英雄");
+            return;
+        }
+
         int chooseChapter = (int)evt.data;
         userInfoModel.fightChapterId = chooseChapter == 0 ? userInfoModel.chapterId : chooseChapter;
 
-        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(1);
     }
 }

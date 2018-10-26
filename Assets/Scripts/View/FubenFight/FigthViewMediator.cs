@@ -10,6 +10,8 @@ public class FigthViewMediator : EventMediator {
     [Inject]
     public FightView fightView { get; set; }
 
+    bool canFight = false;
+
     public override void OnRegister()
     {
         dispatcher.AddListener(MediatorEvent.LoadFightCharacter,LoadFightCharacter);
@@ -33,10 +35,17 @@ public class FigthViewMediator : EventMediator {
 
         fightView.AddCharacter(heroList, true); //添加英雄模型
         fightView.AddCharacter(monsterList, false); //添加怪物模型
+
+
+        canFight = true;
     }
 
     void FightUpdate()
     {
+        if(!canFight){
+            return;
+        }
+
         bool isHeroAlive = false;
         bool isMonsterAlive = false;
         foreach(var role in fightView.roleList)
@@ -69,11 +78,11 @@ public class FigthViewMediator : EventMediator {
 
     void FightOver()
     {
+        canFight = false;
         fightView.dispatcher.RemoveListener(FightView.FightUpdate, FightUpdate);
         dispatcher.Dispatch(CommandEvent.SaveAliveHero, GetHeroList());
 
-
-        SceneManager.LoadScene("MainScene",LoadSceneMode.Single);
+        SceneManager.LoadScene(0);
     }
 
     void ChapterFightWin()
