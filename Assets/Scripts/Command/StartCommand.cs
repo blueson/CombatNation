@@ -44,6 +44,7 @@ public class StartCommand : EventCommand
                 chapterId = userInfoModel.chapterId,
                 summonLv = userInfoModel.summonLv,
                 money = userInfoModel.money,
+                fightChapterId = userInfoModel.fightChapterId,
                 heroInfoData = heroInfoList
             };
 

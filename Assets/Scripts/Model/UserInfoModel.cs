@@ -26,6 +26,7 @@ public class UserInfoModel : IUserInfoModel
         chapterId = userInfoData.chapterId;
         money = userInfoData.money;
         summonLv = userInfoData.summonLv;
+        fightChapterId = userInfoData.fightChapterId;
 
         foreach (var data in userInfoData.heroInfoData)
         {

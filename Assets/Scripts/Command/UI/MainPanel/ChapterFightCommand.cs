@@ -9,6 +9,9 @@ public class ChapterFightCommand : EventCommand {
     [Inject]
     public IUserInfoModel userInfoModel { get; set; }
 
+    [Inject]
+    public IUserInfoService userInfoService { get; set; }
+
     public override void Execute()
     {
 
@@ -20,6 +23,8 @@ public class ChapterFightCommand : EventCommand {
         int chooseChapter = (int)evt.data;
         userInfoModel.fightChapterId = chooseChapter == 0 ? userInfoModel.chapterId : chooseChapter;
 
-        SceneManager.LoadSceneAsync(1);
+        userInfoService.SaveUserInfo(userInfoModel);
+
+        SceneManager.LoadScene(1);
     }
 }

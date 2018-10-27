@@ -15,6 +15,9 @@ public class UserInfoData {
 
     // 召唤池等级
     public int summonLv;
+
+    // 战斗章节id
+    public int fightChapterId;
 	
 }
 

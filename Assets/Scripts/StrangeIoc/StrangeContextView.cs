@@ -6,7 +6,7 @@ using UnityEngine;
 public class StrangeContextView : ContextView {
 
     void Awake(){
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         context = new StrangeContext(this);
     }
 }
