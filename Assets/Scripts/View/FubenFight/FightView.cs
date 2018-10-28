@@ -17,8 +17,8 @@ public class FightView : View {
     public List<Role> roleList = new List<Role>();
 
     public void AddCharacter(List<Dictionary<string, System.Object>> dataList,bool isHero){
-        int y = 0;
-        int x = isHero? -12 : 12;
+        float y = 1.2f;
+        float x = isHero? -12 : 12;
         foreach (var data in dataList)
         {
             var heroPrefab = (GameObject)Resources.Load((string)data["heroPath"]);
@@ -39,7 +39,12 @@ public class FightView : View {
 
             Instantiate(hpBar, go.transform); // 创建血条
 
-            y--;
+            y -= 1.5f;
+            if(y < -4.8f)
+            {
+                y = 1.2f;
+                x = isHero ? x - 1.5f : x + 1.5f;
+            }
         }
     }
 
