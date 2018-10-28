@@ -30,7 +30,7 @@ public class FightView : View {
                 role.HeroInfoId = (string)data["id"]; // 战斗模型跟英雄数据的关系
             }
             role.Hp = (int)data["hp"];
-            role.MaxHp = (int)data["hp"];
+            role.MaxHp = (int)data["maxHp"];
             role.AtkDis = (float)data["atkDis"];
             role.AtkSpeed = (float)data["atkSpeed"];
             role.RoleType1 = (Role.RoleType)data["roleType1"];

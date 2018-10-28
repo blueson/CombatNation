@@ -14,7 +14,10 @@ public class ChapterFightWinCommand : EventCommand {
     public override void Execute()
     {
         int chapterId = userInfoModel.fightChapterId + 1;
-        userInfoModel.chapterId = chapterId;
+
+        if(chapterId > userInfoModel.chapterId){
+            userInfoModel.chapterId = chapterId;
+        }
 
         var chapterTable = ChapterTableData.CreateFromJson();
         var chapterData = chapterTable.GetChapterInfoById(userInfoModel.fightChapterId);
