@@ -14,20 +14,20 @@ public class RecruitItemMediator : EventMediator {
         view.InitView();
 
         view.dispatcher.AddListener(RecruitPanelMediatorEvent.RecruitButtonClick,RecruitButtonClick);
-        dispatcher.AddListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
+        //dispatcher.AddListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
 
-        dispatcher.Dispatch(CommandEvent.GetRecruitMoney);
+        //dispatcher.Dispatch(CommandEvent.GetRecruitMoney);
     }
 
     public override void OnRemove()
     {
-        dispatcher.RemoveListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
+        //dispatcher.RemoveListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
     }
 
-    void GetRecruitMoney(IEvent evt)
-    {
-        view.UpdateRecruitMoneyText((int)evt.data);
-    }
+    //void GetRecruitMoney(IEvent evt)
+    //{
+    //    view.UpdateRecruitMoneyText((int)evt.data);
+    //}
 
     void RecruitButtonClick(IEvent evt)
     {
