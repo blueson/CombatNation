@@ -1,28 +1,34 @@
-﻿using strange.extensions.dispatcher.eventdispatcher.api;
+﻿using System.Collections.Generic;
+using strange.extensions.dispatcher.eventdispatcher.api;
 using strange.extensions.mediation.impl;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class RecruitItemView : View {
 
-    public int recruitCount;
     public Text recruitMoneyText;
     public Text recruitHitText;
+
+    [HideInInspector]
+    public Dictionary<string, System.Object> summonInfo;
 
     [Inject]
     public IEventDispatcher dispatcher { get; set; }
 
-    public void InitView()
-    {
-        recruitHitText.text = "招募" + (recruitCount == 1?"一":"十") + "次";
+
+    public void SetSummInfo(Dictionary<string, System.Object> summonInfo){
+        this.summonInfo = summonInfo;
+
+        UpdateRecruitMoneyText((int)summonInfo["consume"]);
     }
 
     public void UpdateRecruitMoneyText(int money)
     {
-        recruitMoneyText.text = money * recruitCount + "";
+        recruitMoneyText.text = money + "";
     }
 
     public void RecruitButtonClick()
     {
-        dispatcher.Dispatch(RecruitPanelMediatorEvent.RecruitButtonClick,recruitCount);
+        dispatcher.Dispatch(RecruitPanelMediatorEvent.RecruitButtonClick);
     }
 }

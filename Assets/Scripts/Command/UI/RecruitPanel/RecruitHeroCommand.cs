@@ -12,31 +12,25 @@ public class RecruitHeroCommand : EventCommand {
     public IUserInfoService userInfoService { get; set; }
 
     string savePath = Application.persistentDataPath + "/" + "userInfoData.txt";
+
     SummonData summonData;
     CharacterTableData characterTable;
 
     public override void Execute()
     {
-        int recruitCount = (int)evt.data; // 招募次数
 
+        var summonLv = (int)evt.data;
         var summonTable = SummonTableData.CreateFromJson();
         characterTable = CharacterTableData.CreateFromJson();
-        summonData = summonTable.GetSummonDataByLv(userInfoModel.summonLv);
+        summonData = summonTable.GetSummonDataByLv(summonLv);
 
-
-        if(userInfoModel.money >= summonData.consume * recruitCount)
+        if(userInfoModel.money >= summonData.consume)
         {
             // 扣除需要的钱
-            userInfoModel.money -= summonData.consume * recruitCount;
-
-            for (int i = 0; i < recruitCount;i++)
-            {
-                RecruitHero();
-            }
-
+            userInfoModel.money -= summonData.consume;
+            RecruitHero();
             userInfoService.SaveUserInfo(userInfoModel);
             dispatcher.Dispatch(CommandEvent.GetMoney);
-
         }
         else
         {

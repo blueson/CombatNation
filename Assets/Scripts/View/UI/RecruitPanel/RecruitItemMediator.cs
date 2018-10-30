@@ -11,26 +11,16 @@ public class RecruitItemMediator : EventMediator {
 
     public override void OnRegister()
     {
-        view.InitView();
-
         view.dispatcher.AddListener(RecruitPanelMediatorEvent.RecruitButtonClick,RecruitButtonClick);
-        //dispatcher.AddListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
-
-        //dispatcher.Dispatch(CommandEvent.GetRecruitMoney);
     }
 
     public override void OnRemove()
     {
-        //dispatcher.RemoveListener(MediatorEvent.GetRecruitMoney,GetRecruitMoney);
+        
     }
 
-    //void GetRecruitMoney(IEvent evt)
-    //{
-    //    view.UpdateRecruitMoneyText((int)evt.data);
-    //}
-
-    void RecruitButtonClick(IEvent evt)
+    void RecruitButtonClick()
     {
-        dispatcher.Dispatch(CommandEvent.RecruitHero,(int)evt.data);
+        dispatcher.Dispatch(CommandEvent.RecruitHero,(int)view.summonInfo["lv"]);
     }
 }

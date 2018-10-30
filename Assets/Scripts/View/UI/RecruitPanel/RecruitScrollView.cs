@@ -18,13 +18,14 @@ public class RecruitScrollView : View {
         
         foreach (var summonInfo in summonInfoList)
         {
+            
             var go = Instantiate(recruitItemGo);
             go.transform.SetParent(contentTransform);
             var recruitItemView = go.GetComponent<RecruitItemView>();
+            recruitItemView.SetSummInfo(summonInfo);
             recruitItemViewList.Add(recruitItemView);
         }
 
-        var width = recruitItemViewList[recruitItemViewList.Count - 1].transform.position.x + 100;
-        contentTransform.rect.Set(contentTransform.rect.x,contentTransform.rect.y,width,contentTransform.rect.height);
+        contentTransform.sizeDelta = new Vector2(270 * recruitItemViewList.Count, contentTransform.sizeDelta.y);
     }
 }
