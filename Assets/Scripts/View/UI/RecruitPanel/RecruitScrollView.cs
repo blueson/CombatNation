@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using strange.extensions.dispatcher.eventdispatcher.api;
 using strange.extensions.mediation.impl;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecruitScrollView : View {
 
@@ -20,7 +21,8 @@ public class RecruitScrollView : View {
         {
             
             var go = Instantiate(recruitItemGo);
-            go.transform.SetParent(contentTransform);
+            go.GetComponent<RectTransform>().SetParent(contentTransform);
+            go.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
             var recruitItemView = go.GetComponent<RecruitItemView>();
             recruitItemView.SetSummInfo(summonInfo);
             recruitItemViewList.Add(recruitItemView);

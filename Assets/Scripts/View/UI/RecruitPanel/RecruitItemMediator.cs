@@ -12,6 +12,9 @@ public class RecruitItemMediator : EventMediator {
     public override void OnRegister()
     {
         view.dispatcher.AddListener(RecruitPanelMediatorEvent.RecruitButtonClick,RecruitButtonClick);
+        view.dispatcher.AddListener(RecruitPanelMediatorEvent.UnlockButtonClick,UnlockButtonClick);
+
+        dispatcher.AddListener(MediatorEvent.UnlockSummonOver,UnlockSummonOver);
     }
 
     public override void OnRemove()
@@ -19,8 +22,18 @@ public class RecruitItemMediator : EventMediator {
         
     }
 
+    void UnlockButtonClick()
+    {
+        dispatcher.Dispatch(CommandEvent.UnlockSummon,(int)view.summonInfo["lv"]);
+    }
+
     void RecruitButtonClick()
     {
         dispatcher.Dispatch(CommandEvent.RecruitHero,(int)view.summonInfo["lv"]);
+    }
+
+    void UnlockSummonOver()
+    {
+        
     }
 }

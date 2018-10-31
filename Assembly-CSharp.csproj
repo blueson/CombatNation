@@ -95,6 +95,7 @@
      <Compile Include="Assets\Scripts\Command\UI\RecruitPanel\GetRecruitInfoCommand.cs" />
      <Compile Include="Assets\Scripts\Command\UI\RecruitPanel\GetRecruitMoneyCommand.cs" />
      <Compile Include="Assets\Scripts\Command\UI\RecruitPanel\RecruitHeroCommand.cs" />
+     <Compile Include="Assets\Scripts\Command\UI\RecruitPanel\UnlockSummonCommand.cs" />
      <Compile Include="Assets\Scripts\Model\HeroInfoModel.cs" />
      <Compile Include="Assets\Scripts\Model\IUserInfoModel.cs" />
      <Compile Include="Assets\Scripts\Model\UserInfoModel.cs" />
