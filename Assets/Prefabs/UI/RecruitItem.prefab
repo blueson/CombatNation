@@ -502,7 +502,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114804517643271096}
-        m_MethodName: RecruitButtonClick
+        m_MethodName: UnlockButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

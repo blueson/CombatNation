@@ -34,6 +34,9 @@ public class RecruitItemMediator : EventMediator {
 
     void UnlockSummonOver()
     {
-        
+        dispatcher.Dispatch(CommandEvent.GetMoney);
+
+        view.isOpen = true;
+        view.UpdateSummonState();
     }
 }

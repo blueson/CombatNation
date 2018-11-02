@@ -14,13 +14,16 @@ public class RecruitItemView : View {
     [HideInInspector]
     public Dictionary<string, System.Object> summonInfo;
 
+    [HideInInspector]
+    public bool isOpen;
+
     [Inject]
     public IEventDispatcher dispatcher { get; set; }
 
 
     public void SetSummInfo(Dictionary<string, System.Object> summonInfo){
         this.summonInfo = summonInfo;
-
+        isOpen = (bool)this.summonInfo["open"];
         UpdateSummonState();
     }
 
@@ -43,10 +46,8 @@ public class RecruitItemView : View {
         dispatcher.Dispatch(RecruitPanelMediatorEvent.UnlockButtonClick);
     }
 
-    void UpdateSummonState(){
-        var isOpne = (bool)summonInfo["open"];
-
-        if(isOpne){
+    public void UpdateSummonState(){
+        if(isOpen){
             recruitButton.gameObject.SetActive(true);
             unlockButton.gameObject.SetActive(false);
 
